@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sansão Dembué Vieira — Resume</title>
+  <meta name="description" content="Resume of Sansão Dembué Vieira, IT Developer Operations at Localiza&Co." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem("sdv-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    } catch (err) {}
+  </script>
+  <style>
+    :root {
+      --bg: #070b10;
+      --ink: #f3f6f8;
+      --muted: #b4c0cc;
+      --faint: #8b9bab;
+      --line: rgba(232, 240, 248, 0.14);
+      --sheet: rgba(255, 255, 255, 0.045);
+      --accent: #b7f0d4;
+      --accent-deep: #d8fff0;
+      --glow-a: rgba(46, 104, 176, 0.55);
+      --glow-b: rgba(18, 52, 92, 0.7);
+      --glow-c: rgba(18, 72, 58, 0.38);
+      --btn: #e7fff4;
+      --btn-ink: #06281c;
+      --chip: rgba(255, 255, 255, 0.04);
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fb;
+      --ink: #12171c;
+      --muted: #3d4b5a;
+      --faint: #5d6d7e;
+      --line: rgba(16, 28, 44, 0.12);
+      --sheet: rgba(255, 255, 255, 0.82);
+      --accent: #0d5c43;
+      --accent-deep: #084232;
+      --glow-a: rgba(176, 206, 236, 0.95);
+      --glow-b: rgba(214, 226, 240, 0.9);
+      --glow-c: rgba(186, 220, 206, 0.55);
+      --btn: #0e3b2e;
+      --btn-ink: #f4fff9;
+      --chip: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(1100px 560px at 0% -10%, var(--glow-a), transparent 58%),
+        radial-gradient(900px 520px at 100% 0%, var(--glow-b), transparent 52%),
+        radial-gradient(760px 460px at 72% 100%, var(--glow-c), transparent 50%);
+      background-attachment: fixed;
+      font-family: Outfit, "Segoe UI", sans-serif;
+      font-size: 15.5px;
+      line-height: 1.5;
+      transition: background-color 0.45s ease, color 0.45s ease;
+    }
+    a { color: inherit; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .bar {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .mark {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    button, .ghost {
+      font: inherit;
+      cursor: pointer;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    button[aria-pressed="true"] {
+      background: var(--btn);
+      color: var(--btn-ink);
+      border-color: transparent;
+    }
+    main { max-width: 920px; margin: 0 auto; padding: 28px 20px 72px; }
+    .sheet {
+      border: 1px solid var(--line);
+      background: var(--sheet);
+      border-radius: 22px;
+      padding: 32px 32px 20px;
+    }
+    .head {
+      display: grid;
+      grid-template-columns: 1fr 96px;
+      gap: 20px;
+      align-items: center;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .role { margin: 10px 0 0; font-size: 18px; }
+    .meta { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+    .meta a { text-decoration: none; border-bottom: 1px solid var(--line); }
+    .portrait {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      justify-self: end;
+    }
+    h2 {
+      margin: 28px 0 8px;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+    .summary { margin: 0; color: var(--muted); max-width: 72ch; }
+    .job { margin-top: 8px; }
+.job + .job { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+.team {
+  margin: 18px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+    .job-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .job h3 { margin: 0; font-size: 18px; }
+    .where { margin: 2px 0 0; color: var(--muted); }
+    .when { margin: 0; text-align: right; white-space: pre-line; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--faint); }
+    ul { margin: 12px 0 0; padding: 0 0 0 18px; }
+    li { margin: 0 0 8px; }
+    li strong { font-weight: 600; }
+    .deliveries { list-style: none; padding: 0; border-top: 1px solid var(--line); }
+    .deliveries li { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .deliveries h3 { margin: 0 0 4px; font-size: 16px; }
+    .deliveries p { margin: 0; color: var(--muted); }
+    .projects { list-style: none; padding: 0; }
+    .projects li { padding-bottom: 12px; }
+    .projects a { font-weight: 600; }
+    .split { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
+    .chips li { margin: 0; border: 1px solid var(--line); background: var(--chip); border-radius: 999px; padding: 5px 10px; font-size: 13px; }
+    .edu { margin: 8px 0 18px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    @media (max-width: 720px) {
+      .sheet { padding: 22px 16px 8px; }
+      .head, .split { grid-template-columns: 1fr; }
+      .portrait { justify-self: start; }
+      .when { text-align: left; }
+    }
+    @media print {
+      header { display: none; }
+      body { background: #fff; color: #111; font-size: 11.5pt; }
+      .sheet { border: 0; background: #fff; padding: 0; }
+      a { color: #111; text-decoration: none; }
+      .deliveries p, .summary, .where { color: #333; }
+    }
+  </style>
+</head>
+<body>
+  <header class="no-print">
+    <div class="bar">
+      <a class="mark" href="index.html">SDV</a>
+      <div class="tools">
+        <a class="ghost" href="index.html" data-i18n="back">Portfolio</a>
+        <button type="button" id="lang-en" aria-pressed="true">English</button>
+        <button type="button" id="lang-pt" aria-pressed="false">Português</button>
+        <button type="button" id="theme-btn"><span id="theme-label">White</span></button>
+        <button type="button" id="print-btn" data-i18n="print">Print</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <article class="sheet">
+      <header class="head">
+        <div>
+          <h1>Sansão Dembué Vieira</h1>
+          <p class="role" data-i18n="role">Software Engineer · IT Developer Operations</p>
+          <p class="meta">
+            <span data-i18n="base">Belo Horizonte, Minas Gerais, Brazil · Remote</span><br />
+            <a href="https://wa.me/5511939051373">+55 11 93905-1373</a>
+            · <a href="https://github.com/sansaovieira">github.com/sansaovieira</a>
+          </p>
+        </div>
+        <img class="portrait" src="sansao.jpg" alt="Sansão Dembué Vieira" />
+      </header>
+
+      <h2 data-i18n="summary_h">Summary</h2>
+      <p class="summary" data-i18n="summary">Software engineer in IT Developer Operations at Localiza&amp;Co. I provide L2/N2 support for business-critical systems, ship production changes on Microsoft Azure, and use Datadog to keep those services reliable. I also build process automations, AI agents, and application features with Java, .NET, React, Python, and JavaScript.</p>
+
+      <h2 data-i18n="exp_h">Experience</h2>
+      <section class="job">
+        <div class="job-top">
+          <div>
+            <h3>IT Developer Operations</h3>
+            <p class="where" data-i18n="where">Localiza&amp;Co · Full-time</p>
+          </div>
+          <p class="when" data-i18n="when">Dec 2025 — Present · 11 months<br />Belo Horizonte, Minas Gerais, Brazil · Remote</p>
+        </div>
+        <ul>
+          <li data-i18n="b1">Provide L2/N2 application support for business-critical enterprise systems, investigating incidents through log analysis, debugging, and root cause analysis while keeping availability and operational stability.</li>
+          <li data-i18n="b2">Execute production deployments and application changes in Microsoft Azure, following change management and operational excellence practices.</li>
+          <li data-i18n="b3">Monitor applications and infrastructure with Datadog, using dashboards, logs, traces, metrics, and alerts to find issues early and improve reliability.</li>
+          <li data-i18n="b4">Develop and maintain application features, resolve defects, and contribute to technical improvements with Software Engineering teams.</li>
+          <li data-i18n="b5">Troubleshoot complex production incidents, join war rooms, and work with cross-functional teams to restore service and limit business impact.</li>
+          <li data-i18n="b6">Design and implement business process automations in Microsoft Power Automate, reducing manual effort and improving operational efficiency.</li>
+          <li data-i18n="b7">Build and maintain AI agents in Microsoft Copilot Studio to improve internal workflows, user experience, and productivity.</li>
+          <li data-i18n="b8">Develop automation scripts in Python and JavaScript to streamline operational processes and support continuous improvement.</li>
+          <li data-i18n="b9">Drive work on application reliability, observability, performance, and user experience.</li>
+          <li data-i18n="b10">Join Agile ceremonies with Product, Development, Infrastructure, and Operations to deliver reliable software.</li>
+          <li data-i18n="b11">Take part in an on-call rotation, providing after-hours support for mission-critical systems and business continuity.</li>
+        </ul>
+      </section>
+      <section class="job">
+        <div class="job-top">
+          <div>
+            <h3 data-i18n="ntt_role">Software Developer Intern</h3>
+            <p class="where" data-i18n="ntt_where">NTT Ltd. · Internship</p>
+          </div>
+          <p class="when" data-i18n="ntt_when">Oct 2022 — May 2024 · 1 year 8 months<br />São Paulo, Brazil · Hybrid</p>
+        </div>
+        <h3 class="team" data-i18n="t1">Team 1</h3>
+        <ul>
+          <li data-i18n="t1a">Listed the incident context data that the NOC and SOC teams needed to see on the platform, with filters for category, status, and severity.</li>
+          <li data-i18n="t1b">Technologies: Angular, Angular Material, TypeScript, and Sass.</li>
+          <li data-i18n="t1c">Joined NTT without prior Angular or JavaScript experience and learned the stack while building the application.</li>
+          <li data-i18n="t1d">NOC and SOC could then monitor events, contexts, and alerts on the platform, without waiting on developers to answer those tickets. That reduced the company's operational cost.</li>
+        </ul>
+        <h3 class="team" data-i18n="t2">Team 2</h3>
+        <ul>
+          <li data-i18n="t2a">Refactored the full login flow: sign in, sign up, and forgot password.</li>
+          <li data-i18n="t2b">Applied component composition, SOLID, and Atomic Design so the application works on mobile devices, and used JWT for security.</li>
+          <li data-i18n="t2c">Technologies: React, Redux, Context API, Zod, NestJS, and TypeScript.</li>
+          <li data-i18n="t2d">Built the login flow while learning React.</li>
+          <li data-i18n="t2e">The interface became responsive and the system more secure. Login request response time dropped by 30%, and the user satisfaction rate rose by 25%.</li>
+        </ul>
+      </section>
+
+      <h2 data-i18n="del_h">Deliveries — 1st cycle 2026</h2>
+      <ul class="deliveries">
+        <li>
+          <h3 data-i18n="d1_h">End of team on-call</h3>
+          <p data-i18n="d1_p">Built automations, processes, and operational improvements that removed the need for on-call in the operation, reducing operational cost, raising process maturity, and improving the team's quality of life.</p>
+        </li>
+        <li>
+          <h3 data-i18n="d2_h">Jornada do Carro tribe health dashboard (Datadog)</h3>
+          <p data-i18n="d2_p">Built a centralized Datadog dashboard for the health of the Jornada do Carro tribes, with clearer operational visibility, earlier detection of deviations, and live tracking of critical indicators.</p>
+        </li>
+        <li>
+          <h3 data-i18n="d3_h">Automated test log for Jornada do Carro</h3>
+          <p data-i18n="d3_p">Automated the test log, cutting manual work, speeding up validation, and making the executed tests more reliable.</p>
+        </li>
+        <li>
+          <h3 data-i18n="d4_h">JSON API for SharePoint integration</h3>
+          <p data-i18n="d4_p">Built an API that exposes structured SharePoint data and actions, making integrations easier and unlocking further automation.</p>
+        </li>
+        <li>
+          <h3 data-i18n="d5_h">API integration with the ColetAI agent</h3>
+          <p data-i18n="d5_p">Connected the services so action plans are registered automatically, reducing the operational effort of tracking follow-ups.</p>
+        </li>
+        <li>
+          <h3 data-i18n="d6_h">ColetAI refactor for Teams transcripts</h3>
+          <p data-i18n="d6_p">Evolved the agent to read and process transcripts from Teams calls, helping generate information, action plans, and incident follow-up automatically.</p>
+        </li>
+        <li>
+          <h3 data-i18n="d7_h">nucleo-service-react on LDS components</h3>
+          <p data-i18n="d7_p">Updated the frontend to the LDS visual system and components, improving consistency, user experience, and alignment with the company's other products.</p>
+        </li>
+        <li>
+          <h3 data-i18n="d8_h">provider-management-web on LDS components</h3>
+          <p data-i18n="d8_p">Moved the application onto LDS components, making the interface more consistent and easier to maintain as the platform evolves.</p>
+        </li>
+      </ul>
+
+      <div class="split">
+        <section>
+          <h2 data-i18n="proj_h">Projects</h2>
+          <ul class="projects">
+            <li>
+              <a href="https://github.com/sansaovieira/trackPoi-challenge-mobi7-backend">TrackPOI</a>
+              <span data-i18n="p1"> — REST backend for vehicle positions, points of interest, and dwell time. Java, Spring Boot, MySQL, JPA/Hibernate, JUnit 5, Docker.</span>
+            </li>
+            <li>
+              <a href="https://github.com/sansaovieira/api-cadastro-de-usuario">api-cadastro-de-usuario</a>
+              <span data-i18n="p2"> — REST API for user registration, authentication, authorization, and profile management. Java, Spring Boot.</span>
+            </li>
+            <li>
+              <a href="https://github.com/1portodosporum" data-i18n="p3_name">Generation Brasil, Class 78</a>
+              <span data-i18n="p3"> — Team projects ProjetoFitness, ProjetoDelivery, and ProjetoRH. Java and TypeScript.</span>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 data-i18n="skills_h">Skills</h2>
+          <ul class="chips">
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>Python</li>
+            <li>C# / .NET</li>
+            <li>React</li>
+            <li>Angular</li>
+            <li>Node.js</li>
+            <li>NestJS</li>
+            <li>Redux</li>
+            <li>Zod</li>
+            <li>Sass</li>
+            <li>Spring Boot</li>
+            <li>Azure</li>
+            <li>Datadog</li>
+            <li>Docker</li>
+            <li>MySQL</li>
+            <li>Power Automate</li>
+            <li>Copilot Studio</li>
+          </ul>
+          <h2 data-i18n="edu_h">Education</h2>
+          <p class="edu">Universidade Cruzeiro do Sul</p>
+        </section>
+      </div>
+    </article>
+  </main>
+  <script type="application/json" id="i18n">
+{
+  "en": {
+    "back": "Portfolio",
+    "print": "Print",
+    "theme_white": "White",
+    "theme_black": "Black",
+    "role": "Software Engineer · IT Developer Operations",
+    "base": "Belo Horizonte, Minas Gerais, Brazil · Remote",
+    "summary_h": "Summary",
+    "summary": "Software engineer in IT Developer Operations at Localiza&Co. I provide L2/N2 support for business-critical systems, ship production changes on Microsoft Azure, and use Datadog to keep those services reliable. I also build process automations, AI agents, and application features with Java, .NET, React, Python, and JavaScript.",
+    "exp_h": "Experience",
+    "where": "Localiza&Co · Full-time",
+    "when": "Dec 2025 — Present · 11 months\nBelo Horizonte, Minas Gerais, Brazil · Remote",
+    "b1": "Provide L2/N2 application support for business-critical enterprise systems, investigating incidents through log analysis, debugging, and root cause analysis while keeping availability and operational stability.",
+    "b2": "Execute production deployments and application changes in Microsoft Azure, following change management and operational excellence practices.",
+    "b3": "Monitor applications and infrastructure with Datadog, using dashboards, logs, traces, metrics, and alerts to find issues early and improve reliability.",
+    "b4": "Develop and maintain application features, resolve defects, and contribute to technical improvements with Software Engineering teams.",
+    "b5": "Troubleshoot complex production incidents, join war rooms, and work with cross-functional teams to restore service and limit business impact.",
+    "b6": "Design and implement business process automations in Microsoft Power Automate, reducing manual effort and improving operational efficiency.",
+    "b7": "Build and maintain AI agents in Microsoft Copilot Studio to improve internal workflows, user experience, and productivity.",
+    "b8": "Develop automation scripts in Python and JavaScript to streamline operational processes and support continuous improvement.",
+    "b9": "Drive work on application reliability, observability, performance, and user experience.",
+    "b10": "Join Agile ceremonies with Product, Development, Infrastructure, and Operations to deliver reliable software.",
+    "b11": "Take part in an on-call rotation, providing after-hours support for mission-critical systems and business continuity.",
+    "ntt_role": "Software Developer Intern",
+    "ntt_where": "NTT Ltd. · Internship",
+    "ntt_when": "Oct 2022 — May 2024 · 1 year 8 months\nSão Paulo, Brazil · Hybrid",
+    "t1": "Team 1",
+    "t1a": "Listed the incident context data that the NOC and SOC teams needed to see on the platform, with filters for category, status, and severity.",
+    "t1b": "Technologies: Angular, Angular Material, TypeScript, and Sass.",
+    "t1c": "Joined NTT without prior Angular or JavaScript experience and learned the stack while building the application.",
+    "t1d": "NOC and SOC could then monitor events, contexts, and alerts on the platform, without waiting on developers to answer those tickets. That reduced the company's operational cost.",
+    "t2": "Team 2",
+    "t2a": "Refactored the full login flow: sign in, sign up, and forgot password.",
+    "t2b": "Applied component composition, SOLID, and Atomic Design so the application works on mobile devices, and used JWT for security.",
+    "t2c": "Technologies: React, Redux, Context API, Zod, NestJS, and TypeScript.",
+    "t2d": "Built the login flow while learning React.",
+    "t2e": "The interface became responsive and the system more secure. Login request response time dropped by 30%, and the user satisfaction rate rose by 25%.",
+    "del_h": "Deliveries — 1st cycle 2026",
+    "d1_h": "End of team on-call",
+    "d1_p": "Built automations, processes, and operational improvements that removed the need for on-call in the operation, reducing operational cost, raising process maturity, and improving the team's quality of life.",
+    "d2_h": "Jornada do Carro tribe health dashboard (Datadog)",
+    "d2_p": "Built a centralized Datadog dashboard for the health of the Jornada do Carro tribes, with clearer operational visibility, earlier detection of deviations, and live tracking of critical indicators.",
+    "d3_h": "Automated test log for Jornada do Carro",
+    "d3_p": "Automated the test log, cutting manual work, speeding up validation, and making the executed tests more reliable.",
+    "d4_h": "JSON API for SharePoint integration",
+    "d4_p": "Built an API that exposes structured SharePoint data and actions, making integrations easier and unlocking further automation.",
+    "d5_h": "API integration with the ColetAI agent",
+    "d5_p": "Connected the services so action plans are registered automatically, reducing the operational effort of tracking follow-ups.",
+    "d6_h": "ColetAI refactor for Teams transcripts",
+    "d6_p": "Evolved the agent to read and process transcripts from Teams calls, helping generate information, action plans, and incident follow-up automatically.",
+    "d7_h": "nucleo-service-react on LDS components",
+    "d7_p": "Updated the frontend to the LDS visual system and components, improving consistency, user experience, and alignment with the company's other products.",
+    "d8_h": "provider-management-web on LDS components",
+    "d8_p": "Moved the application onto LDS components, making the interface more consistent and easier to maintain as the platform evolves.",
+    "proj_h": "Projects",
+    "p1": " — REST backend for vehicle positions, points of interest, and dwell time. Java, Spring Boot, MySQL, JPA/Hibernate, JUnit 5, Docker.",
+    "p2": " — REST API for user registration, authentication, authorization, and profile management. Java, Spring Boot.",
+    "p3": " — Team projects ProjetoFitness, ProjetoDelivery, and ProjetoRH. Java and TypeScript.",
+    "p3_name": "Generation Brasil, Class 78",
+    "skills_h": "Skills",
+    "edu_h": "Education",
+    "doc_title": "Sansão Dembué Vieira — Resume"
+  },
+  "pt": {
+    "back": "Portfólio",
+    "print": "Imprimir",
+    "theme_white": "Branco",
+    "theme_black": "Preto",
+    "role": "Engenheiro de software · IT Developer Operations",
+    "base": "Belo Horizonte, Minas Gerais, Brasil · Remoto",
+    "summary_h": "Resumo",
+    "summary": "Engenheiro de software em IT Developer Operations na Localiza&Co. Presto suporte L2/N2 a sistemas críticos, publico mudanças de produção no Microsoft Azure e uso o Datadog para manter esses serviços confiáveis. Também construo automações de processo, agentes de IA e funcionalidades com Java, .NET, React, Python e JavaScript.",
+    "exp_h": "Experiência",
+    "where": "Localiza&Co · Tempo integral",
+    "when": "dez 2025 — atual · 11 meses\nBelo Horizonte, Minas Gerais, Brasil · Remoto",
+    "b1": "Suporte L2/N2 a sistemas corporativos críticos, com investigação de incidentes por análise de log, debug e causa raiz, preservando disponibilidade e estabilidade operacional.",
+    "b2": "Execução de deploys e mudanças de aplicação em produção no Microsoft Azure, seguindo gestão de mudança e práticas de excelência operacional.",
+    "b3": "Monitoramento de aplicações e infraestrutura com Datadog, usando dashboards, logs, traces, métricas e alertas para identificar problemas cedo e melhorar a confiabilidade.",
+    "b4": "Desenvolvimento e manutenção de funcionalidades, correção de defeitos e melhorias técnicas junto aos times de Engenharia de Software.",
+    "b5": "Tratamento de incidentes complexos de produção, participação em War Rooms e trabalho com times multidisciplinares para restaurar o serviço e reduzir o impacto no negócio.",
+    "b6": "Desenho e implementação de automações de processo no Microsoft Power Automate, reduzindo esforço manual e ganhando eficiência operacional.",
+    "b7": "Construção e manutenção de agentes de IA no Microsoft Copilot Studio para melhorar fluxos internos, experiência e produtividade.",
+    "b8": "Scripts de automação em Python e JavaScript para simplificar a operação e sustentar a melhoria contínua.",
+    "b9": "Iniciativas de confiabilidade, observabilidade, performance e experiência de uso das aplicações.",
+    "b10": "Participação em cerimônias ágeis com Produto, Desenvolvimento, Infraestrutura e Operações para entregar software confiável.",
+    "b11": "Escala de sobreaviso, com suporte fora do horário comercial a sistemas críticos e continuidade do negócio.",
+    "ntt_role": "Estagiário de desenvolvimento de software",
+    "ntt_where": "NTT Ltd. · Estágio",
+    "ntt_when": "out 2022 — mai 2024 · 1 ano e 8 meses\nSão Paulo, Brasil · Híbrido",
+    "t1": "Time 1",
+    "t1a": "Levantei os dados de contexto de incidente que os times de NOC e SOC precisavam ver na plataforma, com filtro por categoria, status e severidade.",
+    "t1b": "Tecnologias: Angular, Angular Material, TypeScript e Sass.",
+    "t1c": "Entrei na NTT sem conhecimento prévio de Angular e JavaScript, e aprendi a stack enquanto desenvolvia a aplicação.",
+    "t1d": "NOC e SOC passaram a acompanhar eventos, contextos e alertas direto na plataforma, sem depender dos desenvolvedores para responder esses chamados. Isso reduziu o custo operacional da empresa.",
+    "t2": "Time 2",
+    "t2a": "Refatorei o fluxo completo de login: entrar, cadastrar e recuperar senha.",
+    "t2b": "Apliquei composição de componentes, SOLID e Atomic Design para a aplicação funcionar em dispositivos móveis, e usei JWT para segurança.",
+    "t2c": "Tecnologias: React, Redux, Context API, Zod, NestJS e TypeScript.",
+    "t2d": "Desenvolvi o fluxo de login enquanto aprendia React.",
+    "t2e": "A interface ficou responsiva e o sistema mais seguro. O tempo de resposta das requisições de login caiu 30%, e a satisfação dos usuários subiu 25%.",
+    "del_h": "Entregas — 1º ciclo 2026",
+    "d1_h": "Fim do sobreaviso da equipe",
+    "d1_p": "Construção de automações, processos e melhorias operacionais que eliminaram a necessidade de sobreaviso na operação, reduzindo custo, aumentando a maturidade dos processos e melhorando a qualidade de vida da equipe.",
+    "d2_h": "Painel de saúde das tribos da Jornada do Carro (Datadog)",
+    "d2_p": "Dashboard centralizado no Datadog para a saúde das tribos da Jornada do Carro, com mais visibilidade operacional, identificação antecipada de desvios e indicadores críticos em tempo real.",
+    "d3_h": "Automatização do caderno de testes da Jornada do Carro",
+    "d3_p": "Automação do caderno de testes, com menos trabalho manual, validações mais rápidas e mais confiabilidade nos testes executados.",
+    "d4_h": "API em JSON para integração com o SharePoint",
+    "d4_p": "API para disponibilizar dados e ações do SharePoint de forma estruturada, facilitando integrações e novas automações.",
+    "d5_h": "Integração da API com o agente ColetAI",
+    "d5_p": "Integração dos serviços para registro automatizado de planos de ação, reduzindo o esforço operacional no acompanhamento das tratativas.",
+    "d6_h": "Refatoração do ColetAI para transcrições do Teams",
+    "d6_p": "Evolução do agente para ler e processar as transcrições dos chamados no Teams, ajudando a gerar informações, planos de ação e o acompanhamento de incidentes.",
+    "d7_h": "nucleo-service-react nos componentes LDS",
+    "d7_p": "Atualização do frontend para o padrão visual e os componentes LDS, com mais padronização, melhor experiência e alinhamento com os outros produtos da companhia.",
+    "d8_h": "provider-management-web nos componentes LDS",
+    "d8_p": "Adequação da aplicação aos componentes LDS, com interface mais consistente, manutenção mais simples e espaço para a plataforma evoluir.",
+    "proj_h": "Projetos",
+    "p1": " — Backend REST para posições de veículos, pontos de interesse e tempo de permanência. Java, Spring Boot, MySQL, JPA/Hibernate, JUnit 5, Docker.",
+    "p2": " — API REST de cadastro de usuários, autenticação, autorização e perfil. Java, Spring Boot.",
+    "p3": " — Projetos em equipe: ProjetoFitness, ProjetoDelivery e ProjetoRH. Java e TypeScript.",
+    "p3_name": "Generation Brasil, Turma 78",
+    "skills_h": "Competências",
+    "edu_h": "Formação",
+    "doc_title": "Sansão Dembué Vieira — Currículo"
+  }
+}
+  </script>
+  <script>
+    (function () {
+      var I18N = JSON.parse(document.getElementById("i18n").textContent);
+      var lang = "en";
+      try {
+        if (localStorage.getItem("sdv-lang") === "pt") lang = "pt";
+      } catch (err) {}
+
+      var enBtn = document.getElementById("lang-en");
+      var ptBtn = document.getElementById("lang-pt");
+      var themeBtn = document.getElementById("theme-btn");
+      var themeLabel = document.getElementById("theme-label");
+
+      function apply() {
+        var copy = I18N[lang];
+        document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+        document.title = copy.doc_title;
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var key = el.getAttribute("data-i18n");
+          if (!copy[key]) return;
+          el.textContent = copy[key];
+        });
+        enBtn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+        ptBtn.setAttribute("aria-pressed", lang === "pt" ? "true" : "false");
+        var light = document.documentElement.getAttribute("data-theme") === "light";
+        themeLabel.textContent = light ? copy.theme_black : copy.theme_white;
+      }
+
+      function setLang(next) {
+        lang = next;
+        try { localStorage.setItem("sdv-lang", next); } catch (err) {}
+        apply();
+      }
+
+      enBtn.addEventListener("click", function () { setLang("en"); });
+      ptBtn.addEventListener("click", function () { setLang("pt"); });
+      themeBtn.addEventListener("click", function () {
+        var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", next);
+        try { localStorage.setItem("sdv-theme", next); } catch (err) {}
+        apply();
+      });
+      document.getElementById("print-btn").addEventListener("click", function () { window.print(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

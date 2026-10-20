@@ -1,0 +1,16 @@
+Portfólio de Sansão Dembué Vieira
+Arquivos: index.html, resume.html, sansao.jpg, vercel.json
+
+No PC pessoal, descompacte esta pasta e abra index.html no navegador para conferir.
+
+Publicar de graça na Cloudflare Pages (não precisa do GitHub):
+1. Crie uma conta em https://dash.cloudflare.com
+2. Workers & Pages → Create → Pages → Upload assets
+3. Envie esta pasta (os quatro arquivos)
+4. No projeto, adicione o domínio sansaovieira.com e siga o DNS que a Cloudflare mostrar
+
+Publicar na Vercel, se preferir:
+1. Crie uma conta em https://vercel.com
+2. Na pasta descompactada, no terminal: npx vercel
+3. Entre na conta quando o comando pedir
+4. Em Settings → Domains, adicione sansaovieira.com

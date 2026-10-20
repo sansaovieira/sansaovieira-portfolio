@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sansão Dembué Vieira — Software Engineer</title>
+  <meta name="description" content="Portfolio of Sansão Dembué Vieira, software engineer at Localiza&Co. Java, .NET, React, Azure, Datadog, and applied AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.remove("no-js");
+    try {
+      var savedTheme = localStorage.getItem("sdv-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    } catch (err) {}
+  </script>
+  <style>
+    :root {
+      --bg: #070b10;
+      --ink: #f3f6f8;
+      --muted: #b4c0cc;
+      --faint: #8b9bab;
+      --line: rgba(232, 240, 248, 0.14);
+      --sheet: rgba(255, 255, 255, 0.045);
+      --menu: #101820;
+      --accent: #b7f0d4;
+      --accent-deep: #d8fff0;
+      --glow-a: rgba(46, 104, 176, 0.55);
+      --glow-b: rgba(18, 52, 92, 0.7);
+      --glow-c: rgba(18, 72, 58, 0.38);
+      --btn: #e7fff4;
+      --btn-ink: #06281c;
+      --chip: rgba(255, 255, 255, 0.04);
+      --max: 1120px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f6f8fb;
+      --ink: #12171c;
+      --muted: #3d4b5a;
+      --faint: #5d6d7e;
+      --line: rgba(16, 28, 44, 0.12);
+      --sheet: rgba(255, 255, 255, 0.78);
+      --menu: #ffffff;
+      --accent: #0d5c43;
+      --accent-deep: #084232;
+      --glow-a: rgba(176, 206, 236, 0.95);
+      --glow-b: rgba(214, 226, 240, 0.9);
+      --glow-c: rgba(186, 220, 206, 0.55);
+      --btn: #0e3b2e;
+      --btn-ink: #f4fff9;
+      --chip: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(1100px 560px at 0% -10%, var(--glow-a), transparent 58%),
+        radial-gradient(900px 520px at 100% 0%, var(--glow-b), transparent 52%),
+        radial-gradient(760px 460px at 72% 100%, var(--glow-c), transparent 50%);
+      background-attachment: fixed;
+      font-family: Outfit, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.55;
+      transition: background-color 0.45s ease, color 0.45s ease;
+    }
+
+    a { color: inherit; }
+
+    ::selection { background: #1d4f89; color: #fff; }
+
+    .skip {
+      position: absolute;
+      left: 12px;
+      top: -48px;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 8px 12px;
+      z-index: 20;
+    }
+
+    .skip:focus { top: 12px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+      transition: background-color 0.45s ease, border-color 0.45s ease;
+    }
+
+    .bar {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .mark {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav { display: flex; gap: 20px; font-size: 14px; }
+
+    nav a { text-decoration: none; color: var(--muted); }
+    nav a:hover { color: var(--ink); }
+
+    .tools { display: flex; align-items: center; gap: 8px; }
+
+    .ghost, .cta, .lang-menu button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .ghost, .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      padding: 8px 12px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .ghost:hover, .cta:hover { transform: translateY(-1px); }
+
+    .cta {
+      background: var(--btn);
+      color: var(--btn-ink);
+      border-color: transparent;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .ghost { font-size: 13px; padding: 8px 10px; }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #f4f6f8 50%, #111418 50%);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      flex: none;
+    }
+
+    .lang { position: relative; }
+
+    .globe { width: 15px; height: 15px; display: block; }
+
+    .lang-menu {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      min-width: 180px;
+      padding: 6px;
+      margin: 0;
+      list-style: none;
+      background: var(--menu);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+      z-index: 9;
+    }
+
+    .lang-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    .lang-menu button {
+      width: 100%;
+      text-align: left;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      border-radius: 9px;
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+
+    .lang-menu button[aria-selected="true"] { background: var(--sheet); color: var(--accent-deep); }
+    [data-theme="dark"] .lang-menu button[aria-selected="true"] { color: var(--accent); }
+    .lang-menu button:hover { background: var(--sheet); }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 88px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 48px;
+      align-items: start;
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 16px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(46px, 6vw, 78px);
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+    }
+
+    .role { margin: 18px 0 0; font-size: 22px; max-width: 28ch; letter-spacing: -0.02em; }
+
+    .lede, .section-note { margin: 18px 0 0; max-width: 62ch; color: var(--muted); }
+
+    .fluent-line {
+      margin: 14px 0 0;
+      font-weight: 600;
+      color: var(--accent-deep);
+    }
+
+    [data-theme="dark"] .fluent-line { color: var(--accent); }
+
+    .meta {
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 12px;
+      color: var(--faint);
+    }
+
+    .portrait-wrap {
+      width: min(100%, 360px);
+      margin-left: auto;
+      padding: 4px;
+      border-radius: 50%;
+      background: linear-gradient(150deg, rgba(190, 220, 255, 0.95), rgba(14, 40, 32, 0.2) 42%, rgba(183, 240, 212, 0.85));
+      justify-self: end;
+    }
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #070b10;
+}
+
+    .sheet {
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      background: var(--sheet);
+      border-radius: 18px;
+      padding: 4px 18px;
+      transition: background-color 0.45s ease, border-color 0.45s ease;
+    }
+
+    .sheet div {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sheet div:last-child { border-bottom: 0; }
+
+    dt {
+      margin: 0;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+      padding-top: 3px;
+    }
+
+    dd { margin: 0; font-size: 15px; }
+
+    section { padding-top: 72px; }
+
+    h2 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(32px, 4vw, 46px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-note { margin: 10px 0 28px; }
+
+    .work { border-top: 1px solid var(--line); }
+
+    .work article {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .num {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 28px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    h3 { margin: 0 0 6px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+
+    .work p, .study p, .project p { margin: 0; color: var(--muted); }
+
+    .projects { display: grid; gap: 16px; }
+
+    .project {
+      border: 1px solid var(--line);
+      background: var(--sheet);
+      border-radius: 22px;
+      padding: 28px;
+      transition: border-color 0.35s ease, background-color 0.45s ease, transform 0.35s ease;
+    }
+
+    .project:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+
+    .project-feature {
+      display: grid;
+      grid-template-columns: 1.35fr 0.75fr;
+      gap: 28px;
+    }
+
+    .project-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .side {
+      border-left: 1px solid var(--line);
+      padding-left: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+
+    .chips li, .stack li {
+      border: 1px solid var(--line);
+      background: var(--chip);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+
+    .links { display: flex; flex-wrap: wrap; gap: 14px 18px; margin: 18px 0 0; padding: 0; list-style: none; }
+
+    .links a {
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0 1px;
+      transition: background-size 0.3s ease, color 0.3s ease;
+    }
+
+    .links a:hover { background-size: 100% 1px; color: var(--accent-deep); }
+    [data-theme="dark"] .links a:hover { color: var(--accent); }
+
+    .study { border-top: 1px solid var(--line); }
+
+    .study article {
+      display: grid;
+      grid-template-columns: 72px 220px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .study h3 { margin: 0; font-size: 16px; }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+    }
+
+    .stack-grid article { padding: 22px 28px 8px 0; border-bottom: 1px solid var(--line); }
+    .stack-grid article:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 28px; }
+    .stack-grid article:nth-child(even) { padding-left: 28px; }
+
+    .stack-grid h3 {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .stack-grid ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; padding: 0; list-style: none; }
+
+    .fluent {
+      margin-left: 6px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+
+    [data-theme="dark"] .fluent { color: var(--accent); }
+
+    .contact {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: flex-end;
+      padding-top: 72px;
+    }
+
+    .phone {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(28px, 4vw, 40px);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .contact-links { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+    .links-inline {
+  color: var(--muted);
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.links-inline:hover { color: var(--ink); }
+.fine { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 8px 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--faint);
+      font-size: 13px;
+    }
+
+    html:not(.no-js) .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    html:not(.no-js) .reveal.in { opacity: 1; transform: none; }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    @media (max-width: 860px) {
+      .hero, .project-feature, .project-row, .stack-grid, .contact { grid-template-columns: 1fr; display: grid; }
+      .portrait-wrap { width: 210px; margin: 8px 0 0; justify-self: start; }
+      .side { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; }
+      .stack-grid article:nth-child(odd),
+      .stack-grid article:nth-child(even) { border-right: 0; padding-left: 0; padding-right: 0; }
+      .study article { grid-template-columns: 48px 1fr; }
+      .study article p { grid-column: 2; }
+      .bar { flex-wrap: wrap; }
+      nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 2px; }
+      .contact { align-items: flex-start; }
+      .sheet div { grid-template-columns: 1fr; gap: 4px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      html:not(.no-js) .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content" data-i18n="skip">Skip to content</a>
+  <header>
+    <div class="bar">
+      <a class="mark" href="#top">SDV</a>
+      <nav aria-label="Sections">
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#studying" data-i18n="nav_studying">Studying</a>
+        <a href="#stack" data-i18n="nav_stack">Stack</a>
+        <a href="resume.html" data-i18n="nav_resume">Resume</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="tools">
+        <div class="lang">
+          <button class="ghost" id="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu">
+            <svg class="globe" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9s-1.3 6.2-3.8 9c-2.5-2.8-3.8-5.8-3.8-9s1.3-6.2 3.8-9z"></path>
+            </svg>
+            <span id="lang-code">EN</span>
+          </button>
+          <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Language" hidden></ul>
+        </div>
+        <button class="ghost" id="theme-btn" type="button" aria-pressed="false">
+          <span class="swatch" aria-hidden="true"></span>
+          <span id="theme-label">White</span>
+        </button>
+        <a class="cta" href="https://wa.me/5511939051373">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top">
+      <div>
+        <p class="kicker">IT Developer Operations · Localiza&amp;Co</p>
+        <h1>Sansão Dembué Vieira</h1>
+        <p class="role" data-i18n="role">Software engineer. Full stack, application support, and automation.</p>
+        <p class="lede" data-i18n="lede">I support .NET and React applications at Localiza&amp;Co and run production deployments on Azure for every tribe in the Jornada do Carro alliance. I use Datadog to monitor those applications and investigate production incidents. I build full-stack software with Java, .NET, and React.</p>
+        <ul class="meta">
+          <li data-i18n="meta_city">São Paulo, Brazil</li>
+          <li data-i18n="meta_mode">Hybrid, remote, or on-site</li>
+          <li data-i18n="meta_open">Open to recruiters</li>
+        </ul>
+        <aside class="sheet" aria-label="Profile">
+          <dl>
+            <div>
+              <dt data-i18n="f_role">Role</dt>
+              <dd>IT Developer Operations</dd>
+            </div>
+            <div>
+              <dt data-i18n="f_company">Company</dt>
+              <dd>Localiza&amp;Co</dd>
+            </div>
+            <div>
+              <dt data-i18n="f_edu">Education</dt>
+              <dd>Universidade Cruzeiro do Sul</dd>
+            </div>
+            <div>
+              <dt data-i18n="f_focus">Focus</dt>
+              <dd data-i18n="f_focus_v">Java · .NET · React · Azure</dd>
+            </div>
+            <div>
+              <dt data-i18n="f_base">Base</dt>
+              <dd data-i18n="f_base_v">São Paulo and four other regions</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+      <div class="portrait-wrap">
+        <img class="portrait" src="sansao.jpg" alt="Portrait of Sansão Dembué Vieira" data-i18n-alt="photo_alt" />
+      </div>
+    </section>
+
+    <section id="work" class="reveal">
+      <h2 data-i18n="work_h">What I do</h2>
+      <p class="section-note" data-i18n="work_note">I work where the code a tribe delivers has to stay up in production.</p>
+      <div class="work">
+        <article>
+          <div class="num">01</div>
+          <div>
+            <h3 data-i18n="w1_h">Application support</h3>
+            <p data-i18n="w1_p">I support .NET and React applications in the Jornada do Carro alliance: I learn the flow, find the failure, and help the team that shipped the change get moving again.</p>
+          </div>
+        </article>
+        <article>
+          <div class="num">02</div>
+          <div>
+            <h3 data-i18n="w2_h">Production deploys</h3>
+            <p data-i18n="w2_p">I release to Azure the changes from every tribe in the alliance. That means preparing the rollout, watching it land, and confirming the environment stayed healthy.</p>
+          </div>
+        </article>
+        <article>
+          <div class="num">03</div>
+          <div>
+            <h3 data-i18n="w3_h">Observability and incidents</h3>
+            <p data-i18n="w3_p">I use Datadog to monitor applications and investigate what happened in production: the symptom, the scope, and the path to the cause.</p>
+          </div>
+        </article>
+        <article>
+          <div class="num">04</div>
+          <div>
+            <h3 data-i18n="w4_h">Automation and applied AI</h3>
+            <p data-i18n="w4_p">I study process automation and applied AI — agents, multi-agent systems, and MCP — to shorten the path from a request to a step someone can run.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h2 data-i18n="proj_h">Projects</h2>
+      <p class="section-note" data-i18n="proj_note">Selected backend and team work. Java is the through-line.</p>
+      <div class="projects">
+        <article class="project project-feature">
+          <div>
+            <p class="eyebrow">01 · <span data-i18n="p1_k">Backend challenge</span></p>
+            <h3>TrackPOI</h3>
+            <p data-i18n="p1_p">REST backend for ingesting vehicle positions, registering and querying points of interest, and calculating how long a vehicle stays at each POI. Layered as Controller, Service, Repository, and Model, with unit tests for the ingestion service.</p>
+            <ul class="links">
+              <li><a href="https://github.com/sansaovieira/trackPoi-challenge-mobi7-backend" target="_blank" rel="noopener noreferrer" data-i18n="link_backend">Backend</a></li>
+              <li><a href="https://github.com/sansaovieira/trackPoi-challenge-mobi7-frontend" target="_blank" rel="noopener noreferrer" data-i18n="link_frontend">Frontend</a></li>
+              <li><a href="https://track-poi-challenge-mobi7-frontend.vercel.app" target="_blank" rel="noopener noreferrer" data-i18n="link_demo">Live demo</a></li>
+            </ul>
+          </div>
+          <div class="side">
+            <p class="eyebrow" data-i18n="tech_label">Technologies</p>
+            <ul class="chips">
+              <li>Java</li><li>Spring Boot</li><li>MySQL</li><li>JPA / Hibernate</li><li>JUnit 5</li><li>Docker</li>
+            </ul>
+          </div>
+        </article>
+        <div class="project-row">
+          <article class="project">
+            <p class="eyebrow">02 · <span data-i18n="p2_k">REST API</span></p>
+            <h3 data-i18n="p2_h">User registration API</h3>
+            <p data-i18n="p2_p">REST API for user registration, authentication, authorization, and profile management.</p>
+            <ul class="chips">
+              <li>Java</li><li>Spring Boot</li><li>REST APIs</li>
+            </ul>
+            <ul class="links">
+              <li><a href="https://github.com/sansaovieira/api-cadastro-de-usuario" target="_blank" rel="noopener noreferrer" data-i18n="link_repo">Repository</a></li>
+            </ul>
+          </article>
+          <article class="project">
+            <p class="eyebrow">03 · Generation Brasil</p>
+            <h3 data-i18n="p3_h">Collaborative projects, Class 78</h3>
+            <p data-i18n="p3_p">Team delivery during the bootcamp, including ProjetoFitness, ProjetoDelivery, and ProjetoRH, with the related frontend repositories.</p>
+            <ul class="chips">
+              <li>Java</li><li>TypeScript</li>
+            </ul>
+            <ul class="links">
+              <li><a href="https://github.com/1portodosporum" target="_blank" rel="noopener noreferrer" data-i18n="link_repos">Repositories</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="studying" class="reveal">
+      <h2 data-i18n="study_h">Studying now</h2>
+      <p class="section-note" data-i18n="study_note">What I am going deeper on, alongside the day-to-day operation.</p>
+      <div class="study">
+        <article>
+          <div class="num">01</div>
+          <h3 data-i18n="s1_h">AI agents</h3>
+          <p data-i18n="s1_p">How an agent reads a context, calls the right tool, and returns a next step a person can actually run.</p>
+        </article>
+        <article>
+          <div class="num">02</div>
+          <h3 data-i18n="s2_h">Multi-agent systems</h3>
+          <p data-i18n="s2_p">How specialized agents split a task and hand work to one another without losing the thread.</p>
+        </article>
+        <article>
+          <div class="num">03</div>
+          <h3>MCP</h3>
+          <p data-i18n="s3_p">Model Context Protocol: a shared contract for how an agent reaches tools and data.</p>
+        </article>
+        <article>
+          <div class="num">04</div>
+          <h3 data-i18n="s4_h">Prompt engineering</h3>
+          <p data-i18n="s4_p">How instructions, examples, and constraints change the quality of a result.</p>
+        </article>
+        <article>
+          <div class="num">05</div>
+          <h3 data-i18n="s5_h">Process automation</h3>
+          <p data-i18n="s5_p">Finding the repeated operational step and turning it into a flow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack" class="reveal">
+      <h2 data-i18n="stack_h">Technologies</h2>
+      <p class="section-note" data-i18n="stack_note">What I use to build, support, and watch production.</p>
+      <div class="stack-grid">
+        <article>
+          <h3 data-i18n="stack_lang">Languages</h3>
+          <ul>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>Python</li>
+            <li>C# / .NET</li>
+          </ul>
+        </article>
+        <article>
+          <h3 data-i18n="stack_ui">Interface and services</h3>
+          <ul>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Spring Boot</li>
+          </ul>
+        </article>
+        <article>
+          <h3 data-i18n="stack_platform">Platform</h3>
+          <ul>
+            <li>Azure</li>
+            <li>Docker</li>
+            <li>MySQL</li>
+            <li>Power Automate</li>
+            <li>Copilot Studio</li>
+          </ul>
+        </article>
+        <article>
+          <h3 data-i18n="stack_obs">Observability</h3>
+          <ul>
+            <li>Datadog</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div>
+        <p class="kicker" data-i18n="contact_k">Contact</p>
+        <h2 data-i18n="contact_h">Let’s talk</h2>
+        <p class="section-note" data-i18n="contact_p">Open to opportunities. The profile is visible to recruiters. Based in São Paulo, available hybrid, remote, or on-site.</p>
+        <div class="contact-links">
+          <a class="phone" href="https://wa.me/5511939051373">+55 11 93905-1373</a>
+          <a class="links-inline" href="https://github.com/sansaovieira" target="_blank" rel="noopener noreferrer">github.com/sansaovieira</a>
+        </div>
+        <p class="fine" data-i18n="contact_fine">WhatsApp · São Paulo, Brazil</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Sansão Dembué Vieira</span>
+    <span data-i18n="footer_role">Software engineer · Localiza&amp;Co</span>
+  </footer>
+
+  <script type="application/json" id="i18n">
+{
+  "en": {
+    "skip": "Skip to content",
+    "nav_work": "Work",
+    "nav_projects": "Projects",
+    "nav_studying": "Studying",
+    "nav_stack": "Stack",
+    "nav_resume": "Resume",
+    "nav_contact": "Contact",
+    "role": "Software engineer. Full stack, application support, and automation.",
+    "lede": "I support .NET and React applications at Localiza&Co and run production deployments on Azure for every tribe in the Jornada do Carro alliance. I use Datadog to monitor those applications and investigate production incidents. I build full-stack software with Java, .NET, and React.",
+    "fluent": "Java",
+    "meta_city": "São Paulo, Brazil",
+    "meta_mode": "Hybrid, remote, or on-site",
+    "meta_open": "Open to recruiters",
+    "f_role": "Role",
+    "f_company": "Company",
+    "f_edu": "Education",
+    "f_focus": "Focus",
+    "f_focus_v": "Java · .NET · React · Azure",
+    "f_base": "Base",
+    "f_base_v": "São Paulo and four other regions",
+    "photo_alt": "Portrait of Sansão Dembué Vieira",
+    "work_h": "What I do",
+    "work_note": "I work where the code a tribe delivers has to stay up in production.",
+    "w1_h": "Application support",
+    "w1_p": "I support .NET and React applications in the Jornada do Carro alliance: I learn the flow, find the failure, and help the team that shipped the change get moving again.",
+    "w2_h": "Production deploys",
+    "w2_p": "I release to Azure the changes from every tribe in the alliance. That means preparing the rollout, watching it land, and confirming the environment stayed healthy.",
+    "w3_h": "Observability and incidents",
+    "w3_p": "I use Datadog to monitor applications and investigate what happened in production: the symptom, the scope, and the path to the cause.",
+    "w4_h": "Automation and applied AI",
+    "w4_p": "I study process automation and applied AI — agents, multi-agent systems, and MCP — to shorten the path from a request to a step someone can run.",
+    "proj_h": "Projects",
+    "proj_note": "Selected backend and team work. Java is the through-line.",
+    "p1_k": "Backend challenge",
+    "p1_p": "REST backend for ingesting vehicle positions, registering and querying points of interest, and calculating how long a vehicle stays at each POI. Layered as Controller, Service, Repository, and Model, with unit tests for the ingestion service.",
+    "p2_k": "REST API",
+    "p2_h": "User registration API",
+    "p2_p": "REST API for user registration, authentication, authorization, and profile management.",
+    "p3_h": "Collaborative projects, Class 78",
+    "p3_p": "Team delivery during the bootcamp, including ProjetoFitness, ProjetoDelivery, and ProjetoRH, with the related frontend repositories.",
+    "link_backend": "Backend",
+    "link_frontend": "Frontend",
+    "link_demo": "Live demo",
+    "link_repo": "Repository",
+    "link_repos": "Repositories",
+    "tech_label": "Technologies",
+    "study_h": "Studying now",
+    "study_note": "What I am going deeper on, alongside the day-to-day operation.",
+    "s1_h": "AI agents",
+    "s1_p": "How an agent reads a context, calls the right tool, and returns a next step a person can actually run.",
+    "s2_h": "Multi-agent systems",
+    "s2_p": "How specialized agents split a task and hand work to one another without losing the thread.",
+    "s3_p": "Model Context Protocol: a shared contract for how an agent reaches tools and data.",
+    "s4_h": "Prompt engineering",
+    "s4_p": "How instructions, examples, and constraints change the quality of a result.",
+    "s5_h": "Process automation",
+    "s5_p": "Finding the repeated operational step and turning it into a flow.",
+    "stack_h": "Technologies",
+    "stack_note": "What I use to build, support, and watch production.",
+    "stack_lang": "Languages",
+    "stack_ui": "Interface and services",
+    "stack_platform": "Platform",
+    "stack_obs": "Observability",
+    "fluent_tag": "Java",
+    "contact_k": "Contact",
+    "contact_h": "Let's talk",
+    "contact_p": "Open to opportunities. The profile is visible to recruiters. Based in São Paulo, available hybrid, remote, or on-site.",
+    "contact_fine": "WhatsApp · São Paulo, Brazil",
+    "footer_role": "Software engineer · Localiza&Co",
+    "theme_white": "White",
+    "theme_black": "Black",
+    "theme_white_label": "Switch to a white background",
+    "theme_black_label": "Switch to a black background",
+    "lang_label": "Choose language"
+  },
+  "pt": {
+    "skip": "Ir para o conteúdo",
+    "nav_work": "Atuação",
+    "nav_projects": "Projetos",
+    "nav_studying": "Estudos",
+    "nav_stack": "Stack",
+    "nav_resume": "Currículo",
+    "nav_contact": "Contato",
+    "role": "Engenheiro de software. Full stack, suporte de aplicação e automação.",
+    "lede": "Na Localiza&Co, sustento aplicações .NET e React e faço o deploy de produção no Azure das mudanças de todas as tribos da Aliança Jornada do Carro. Uso o Datadog para monitorar essas aplicações e investigar incidentes. Desenvolvo software full stack com Java, .NET e React.",
+    "fluent": "Java",
+    "meta_city": "São Paulo, Brasil",
+    "meta_mode": "Híbrido, remoto ou presencial",
+    "meta_open": "Aberto a recrutadores",
+    "f_role": "Cargo",
+    "f_company": "Empresa",
+    "f_edu": "Formação",
+    "f_focus": "Foco",
+    "f_focus_v": "Java · .NET · React · Azure",
+    "f_base": "Base",
+    "f_base_v": "São Paulo e outras quatro regiões",
+    "photo_alt": "Retrato de Sansão Dembué Vieira",
+    "work_h": "O que eu faço",
+    "work_note": "Trabalho no ponto em que o código entregue por uma tribo precisa continuar de pé em produção.",
+    "w1_h": "Suporte de aplicações",
+    "w1_p": "Sustento aplicações .NET e React da Aliança Jornada do Carro: entendo o fluxo, localizo a falha e ajudo o time que entregou a mudança a seguir.",
+    "w2_h": "Deploy em produção",
+    "w2_p": "Publico no Azure as mudanças de todas as tribos da aliança. Isso inclui preparar a subida, acompanhar o rollout e confirmar que o ambiente ficou estável.",
+    "w3_h": "Observabilidade e incidentes",
+    "w3_p": "Uso o Datadog para monitorar aplicações e investigar o que aconteceu em produção: o sintoma, o alcance e o caminho até a causa.",
+    "w4_h": "Automação e IA aplicada",
+    "w4_p": "Estudo automação de processos e IA aplicada — agentes, sistemas multiagente e MCP — para encurtar o caminho entre um pedido e um passo que alguém consegue executar.",
+    "proj_h": "Projetos",
+    "proj_note": "Backend e trabalho em equipe. Java é o fio condutor.",
+    "p1_k": "Desafio de backend",
+    "p1_p": "Backend REST para ingestão de posições de veículos, cadastro e consulta de pontos de interesse e cálculo do tempo de permanência em cada POI. Estrutura em camadas com Controller, Service, Repository e Model, com testes unitários do serviço de ingestão.",
+    "p2_k": "API REST",
+    "p2_h": "API de cadastro de usuários",
+    "p2_p": "API REST para cadastro de usuários, autenticação, autorização e gerenciamento de perfil.",
+    "p3_h": "Projetos colaborativos, Turma 78",
+    "p3_p": "Desenvolvimento em equipe no bootcamp, incluindo ProjetoFitness, ProjetoDelivery e ProjetoRH, com os repositórios de frontend associados.",
+    "link_backend": "Backend",
+    "link_frontend": "Frontend",
+    "link_demo": "Demo",
+    "link_repo": "Repositório",
+    "link_repos": "Repositórios",
+    "tech_label": "Tecnologias",
+    "study_h": "Estudando agora",
+    "study_note": "O que estou aprofundando, junto da operação do dia a dia.",
+    "s1_h": "Agentes de IA",
+    "s1_p": "Como um agente lê um contexto, chama a ferramenta certa e devolve um próximo passo que a pessoa consegue executar.",
+    "s2_h": "Sistemas multiagente",
+    "s2_p": "Como agentes especializados dividem uma tarefa e passam o trabalho adiante sem perder o fio.",
+    "s3_p": "Model Context Protocol: um contrato comum para o agente alcançar ferramentas e dados.",
+    "s4_h": "Prompt engineering",
+    "s4_p": "Como instruções, exemplos e restrições mudam a qualidade do resultado.",
+    "s5_h": "Automação de processos",
+    "s5_p": "Achar o passo operacional que se repete e transformar em fluxo.",
+    "stack_h": "Tecnologias",
+    "stack_note": "O que uso para construir, sustentar e observar produção.",
+    "stack_lang": "Linguagens",
+    "stack_ui": "Interface e serviços",
+    "stack_platform": "Plataforma",
+    "stack_obs": "Observabilidade",
+    "fluent_tag": "Java",
+    "contact_k": "Contato",
+    "contact_h": "Vamos conversar",
+    "contact_p": "Aberto a oportunidades. O perfil está visível para recrutadores. Base em São Paulo, com disponibilidade híbrida, remota ou presencial.",
+    "contact_fine": "WhatsApp · São Paulo, Brasil",
+    "footer_role": "Engenheiro de software · Localiza&Co",
+    "theme_white": "Branco",
+    "theme_black": "Preto",
+    "theme_white_label": "Mudar para fundo branco",
+    "theme_black_label": "Mudar para fundo preto",
+    "lang_label": "Escolher idioma"
+  },
+  "es": {
+    "skip": "Saltar al contenido",
+    "nav_work": "Trabajo",
+    "nav_projects": "Proyectos",
+    "nav_studying": "Estudios",
+    "nav_stack": "Stack",
+    "nav_resume": "Currículum",
+    "nav_contact": "Contacto",
+    "role": "Ingeniero de software. Full stack, soporte de aplicaciones y automatización.",
+    "lede": "En Localiza&Co sostengo aplicaciones .NET y React y publico en producción, en Azure, los cambios de todas las tribus de la alianza Jornada do Carro. Uso Datadog para monitorear esas aplicaciones e investigar incidentes. Desarrollo software full stack con Java, .NET y React.",
+    "fluent": "Java",
+    "meta_city": "São Paulo, Brasil",
+    "meta_mode": "Híbrido, remoto o presencial",
+    "meta_open": "Abierto a reclutadores",
+    "f_role": "Cargo",
+    "f_company": "Empresa",
+    "f_edu": "Formación",
+    "f_focus": "Foco",
+    "f_focus_v": "Java · .NET · React · Azure",
+    "f_base": "Base",
+    "f_base_v": "São Paulo y otras cuatro regiones",
+    "photo_alt": "Retrato de Sansão Dembué Vieira",
+    "work_h": "Qué hago",
+    "work_note": "Trabajo en el punto en el que el código de una tribu tiene que seguir en pie en producción.",
+    "w1_h": "Soporte de aplicaciones",
+    "w1_p": "Sostengo aplicaciones .NET y React de la alianza Jornada do Carro: entiendo el flujo, encuentro el fallo y ayudo al equipo que entregó el cambio a seguir.",
+    "w2_h": "Deploys en producción",
+    "w2_p": "Publico en Azure los cambios de todas las tribus de la alianza. Eso incluye preparar la subida, acompañar el rollout y confirmar que el entorno quedó estable.",
+    "w3_h": "Observabilidad e incidentes",
+    "w3_p": "Uso Datadog para monitorear aplicaciones e investigar lo que pasó en producción: el síntoma, el alcance y el camino hasta la causa.",
+    "w4_h": "Automatización e IA aplicada",
+    "w4_p": "Estudio automatización de procesos e IA aplicada — agentes, sistemas multiagente y MCP — para acortar el camino entre un pedido y un paso que alguien puede ejecutar.",
+    "proj_h": "Proyectos",
+    "proj_note": "Backend y trabajo en equipo. Java es el hilo conductor.",
+    "p1_k": "Reto de backend",
+    "p1_p": "Backend REST para ingerir posiciones de vehículos, registrar y consultar puntos de interés y calcular cuánto tiempo permanece un vehículo en cada POI. Capas de Controller, Service, Repository y Model, con pruebas unitarias del servicio de ingesta.",
+    "p2_k": "API REST",
+    "p2_h": "API de registro de usuarios",
+    "p2_p": "API REST para registro de usuarios, autenticación, autorización y gestión de perfil.",
+    "p3_h": "Proyectos colaborativos, Clase 78",
+    "p3_p": "Entrega en equipo durante el bootcamp, incluidos ProjetoFitness, ProjetoDelivery y ProjetoRH, con los repositorios de frontend asociados.",
+    "link_backend": "Backend",
+    "link_frontend": "Frontend",
+    "link_demo": "Demo",
+    "link_repo": "Repositorio",
+    "link_repos": "Repositorios",
+    "tech_label": "Tecnologías",
+    "study_h": "Estudiando ahora",
+    "study_note": "En qué estoy profundizando, junto con la operación del día a día.",
+    "s1_h": "Agentes de IA",
+    "s1_p": "Cómo un agente lee un contexto, llama a la herramienta correcta y devuelve un siguiente paso que una persona puede ejecutar.",
+    "s2_h": "Sistemas multiagente",
+    "s2_p": "Cómo agentes especializados reparten una tarea y se pasan el trabajo sin perder el hilo.",
+    "s3_p": "Model Context Protocol: un contrato común para que un agente llegue a herramientas y datos.",
+    "s4_h": "Prompt engineering",
+    "s4_p": "Cómo las instrucciones, los ejemplos y los límites cambian la calidad del resultado.",
+    "s5_h": "Automatización de procesos",
+    "s5_p": "Encontrar el paso operativo que se repite y convertirlo en un flujo.",
+    "stack_h": "Tecnologías",
+    "stack_note": "Lo que uso para construir, sostener y observar producción.",
+    "stack_lang": "Lenguajes",
+    "stack_ui": "Interfaz y servicios",
+    "stack_platform": "Plataforma",
+    "stack_obs": "Observabilidad",
+    "fluent_tag": "Java",
+    "contact_k": "Contacto",
+    "contact_h": "Hablemos",
+    "contact_p": "Abierto a oportunidades. El perfil es visible para reclutadores. Base en São Paulo, disponibilidad híbrida, remota o presencial.",
+    "contact_fine": "WhatsApp · São Paulo, Brasil",
+    "footer_role": "Ingeniero de software · Localiza&Co",
+    "theme_white": "Blanco",
+    "theme_black": "Negro",
+    "theme_white_label": "Cambiar a fondo blanco",
+    "theme_black_label": "Cambiar a fondo negro",
+    "lang_label": "Elegir idioma"
+  },
+  "fr": {
+    "skip": "Aller au contenu",
+    "nav_work": "Pratique",
+    "nav_projects": "Projets",
+    "nav_studying": "Études",
+    "nav_stack": "Stack",
+    "nav_resume": "CV",
+    "nav_contact": "Contact",
+    "role": "Ingénieur logiciel. Full stack, support applicatif et automatisation.",
+    "lede": "Chez Localiza&Co, je maintiens des applications .NET et React et je mets en production sur Azure les changements livrés par toutes les tribus de l'alliance Jornada do Carro. J'utilise Datadog pour surveiller ces applications et investiguer les incidents. Je développe en full stack avec Java, .NET et React.",
+    "fluent": "Java",
+    "meta_city": "São Paulo, Brésil",
+    "meta_mode": "Hybride, distanciel ou sur site",
+    "meta_open": "Ouvert aux recruteurs",
+    "f_role": "Poste",
+    "f_company": "Entreprise",
+    "f_edu": "Formation",
+    "f_focus": "Focus",
+    "f_focus_v": "Java · .NET · React · Azure",
+    "f_base": "Base",
+    "f_base_v": "São Paulo et quatre autres régions",
+    "photo_alt": "Portrait de Sansão Dembué Vieira",
+    "work_h": "Ce que je fais",
+    "work_note": "J'interviens là où le code livré par une tribu doit rester debout en production.",
+    "w1_h": "Support applicatif",
+    "w1_p": "Je maintiens les applications .NET et React de l'alliance Jornada do Carro : je comprends le flux, je trouve la panne et j'aide l'équipe qui a livré le changement à avancer.",
+    "w2_h": "Mises en production",
+    "w2_p": "Je publie sur Azure les changements de toutes les tribus de l'alliance. Cela comprend préparer le déploiement, suivre le rollout et confirmer que l'environnement est resté sain.",
+    "w3_h": "Observabilité et incidents",
+    "w3_p": "J'utilise Datadog pour surveiller les applications et investiguer ce qui s'est passé en production : le symptôme, le périmètre et le chemin jusqu'à la cause.",
+    "w4_h": "Automatisation et IA appliquée",
+    "w4_p": "J'étudie l'automatisation des processus et l'IA appliquée — agents, systèmes multi-agents et MCP — pour raccourcir le chemin entre une demande et une étape exécutable.",
+    "proj_h": "Projets",
+    "proj_note": "Backend et travail d'équipe. Java est le fil conducteur.",
+    "p1_k": "Défi backend",
+    "p1_p": "Backend REST pour ingérer des positions de véhicules, enregistrer et consulter des points d'intérêt, et calculer le temps de présence d'un véhicule sur chaque POI. Couches Controller, Service, Repository et Model, avec des tests unitaires du service d'ingestion.",
+    "p2_k": "API REST",
+    "p2_h": "API d'inscription des utilisateurs",
+    "p2_p": "API REST pour l'inscription, l'authentification, l'autorisation et la gestion de profil.",
+    "p3_h": "Projets collaboratifs, promotion 78",
+    "p3_p": "Livraison en équipe pendant le bootcamp, dont ProjetoFitness, ProjetoDelivery et ProjetoRH, avec les dépôts frontend associés.",
+    "link_backend": "Backend",
+    "link_frontend": "Frontend",
+    "link_demo": "Démo",
+    "link_repo": "Dépôt",
+    "link_repos": "Dépôts",
+    "tech_label": "Technologies",
+    "study_h": "J'étudie en ce moment",
+    "study_note": "Ce que j'approfondis, à côté de l'opération du quotidien.",
+    "s1_h": "Agents d'IA",
+    "s1_p": "Comment un agent lit un contexte, appelle le bon outil et renvoie une prochaine étape qu'une personne peut exécuter.",
+    "s2_h": "Systèmes multi-agents",
+    "s2_p": "Comment des agents spécialisés se partagent une tâche et se passent le travail sans perdre le fil.",
+    "s3_p": "Model Context Protocol : un contrat commun pour qu'un agent atteigne outils et données.",
+    "s4_h": "Prompt engineering",
+    "s4_p": "Comment les instructions, les exemples et les contraintes changent la qualité d'un résultat.",
+    "s5_h": "Automatisation des processus",
+    "s5_p": "Repérer l'étape opérationnelle qui se répète et la transformer en flux.",
+    "stack_h": "Technologies",
+    "stack_note": "Ce que j'utilise pour construire, maintenir et observer la production.",
+    "stack_lang": "Langages",
+    "stack_ui": "Interface et services",
+    "stack_platform": "Plateforme",
+    "stack_obs": "Observabilité",
+    "fluent_tag": "Java",
+    "contact_k": "Contact",
+    "contact_h": "Parlons-en",
+    "contact_p": "Ouvert aux opportunités. Le profil est visible pour les recruteurs. Basé à São Paulo, disponible en hybride, à distance ou sur site.",
+    "contact_fine": "WhatsApp · São Paulo, Brésil",
+    "footer_role": "Ingénieur logiciel · Localiza&Co",
+    "theme_white": "Blanc",
+    "theme_black": "Noir",
+    "theme_white_label": "Passer au fond blanc",
+    "theme_black_label": "Passer au fond noir",
+    "lang_label": "Choisir la langue"
+  },
+  "de": {
+    "skip": "Zum Inhalt",
+    "nav_work": "Arbeit",
+    "nav_projects": "Projekte",
+    "nav_studying": "Studium",
+    "nav_stack": "Stack",
+    "nav_resume": "Lebenslauf",
+    "nav_contact": "Kontakt",
+    "role": "Software Engineer. Full Stack, Anwendungssupport und Automatisierung.",
+    "lede": "Bei Localiza&Co betreue ich .NET- und React-Anwendungen und bringe die Änderungen aller Tribes der Allianz Jornada do Carro auf Azure in Produktion. Mit Datadog überwache ich diese Anwendungen und untersuche Incidents. Ich entwickle Full-Stack-Software mit Java, .NET und React.",
+    "fluent": "Java",
+    "meta_city": "São Paulo, Brasilien",
+    "meta_mode": "Hybrid, remote oder vor Ort",
+    "meta_open": "Offen für Recruiter",
+    "f_role": "Rolle",
+    "f_company": "Unternehmen",
+    "f_edu": "Ausbildung",
+    "f_focus": "Fokus",
+    "f_focus_v": "Java · .NET · React · Azure",
+    "f_base": "Basis",
+    "f_base_v": "São Paulo und vier weitere Regionen",
+    "photo_alt": "Porträt von Sansão Dembué Vieira",
+    "work_h": "Was ich tue",
+    "work_note": "Ich arbeite dort, wo der Code eines Tribes in Produktion stehen bleiben muss.",
+    "w1_h": "Anwendungssupport",
+    "w1_p": "Ich betreue .NET- und React-Anwendungen der Allianz Jornada do Carro: Ich verstehe den Ablauf, finde den Fehler und helfe dem Team, das die Änderung geliefert hat.",
+    "w2_h": "Produktions-Deploys",
+    "w2_p": "Ich veröffentliche auf Azure die Änderungen aller Tribes der Allianz. Dazu gehören die Vorbereitung, das Beobachten des Rollouts und die Bestätigung, dass die Umgebung stabil blieb.",
+    "w3_h": "Observability und Incidents",
+    "w3_p": "Ich nutze Datadog, um Anwendungen zu überwachen und zu untersuchen, was in Produktion passiert ist: Symptom, Umfang und der Weg zur Ursache.",
+    "w4_h": "Automatisierung und angewandte KI",
+    "w4_p": "Ich beschäftige mich mit Prozessautomatisierung und angewandter KI — Agenten, Multi-Agenten-Systeme und MCP — um den Weg von einer Anfrage zu einem ausführbaren Schritt zu verkürzen.",
+    "proj_h": "Projekte",
+    "proj_note": "Backend und Teamarbeit. Java zieht sich durch alles.",
+    "p1_k": "Backend-Challenge",
+    "p1_p": "REST-Backend für die Aufnahme von Fahrzeugpositionen, das Anlegen und Abfragen von Points of Interest und die Berechnung, wie lange ein Fahrzeug an einem POI bleibt. Geschichtet in Controller, Service, Repository und Model, mit Unit-Tests für den Ingestion-Service.",
+    "p2_k": "REST-API",
+    "p2_h": "API zur Nutzerregistrierung",
+    "p2_p": "REST-API für Registrierung, Authentifizierung, Autorisierung und Profilverwaltung.",
+    "p3_h": "Gemeinschaftsprojekte, Klasse 78",
+    "p3_p": "Teamlieferung im Bootcamp, darunter ProjetoFitness, ProjetoDelivery und ProjetoRH, mit den zugehörigen Frontend-Repositories.",
+    "link_backend": "Backend",
+    "link_frontend": "Frontend",
+    "link_demo": "Demo",
+    "link_repo": "Repository",
+    "link_repos": "Repositories",
+    "tech_label": "Technologien",
+    "study_h": "Gerade am Lernen",
+    "study_note": "Worin ich mich vertiefe, neben dem operativen Alltag.",
+    "s1_h": "KI-Agenten",
+    "s1_p": "Wie ein Agent einen Kontext liest, das richtige Werkzeug aufruft und einen nächsten Schritt zurückgibt, den ein Mensch ausführen kann.",
+    "s2_h": "Multi-Agenten-Systeme",
+    "s2_p": "Wie spezialisierte Agenten eine Aufgabe teilen und die Arbeit weitergeben, ohne den Faden zu verlieren.",
+    "s3_p": "Model Context Protocol: ein gemeinsamer Vertrag, über den ein Agent Werkzeuge und Daten erreicht.",
+    "s4_h": "Prompt Engineering",
+    "s4_p": "Wie Anweisungen, Beispiele und Grenzen die Qualität eines Ergebnisses verändern.",
+    "s5_h": "Prozessautomatisierung",
+    "s5_p": "Den sich wiederholenden operativen Schritt finden und in einen Ablauf verwandeln.",
+    "stack_h": "Technologien",
+    "stack_note": "Womit ich baue, betreue und Produktion beobachte.",
+    "stack_lang": "Sprachen",
+    "stack_ui": "Oberfläche und Dienste",
+    "stack_platform": "Plattform",
+    "stack_obs": "Observability",
+    "fluent_tag": "Java",
+    "contact_k": "Kontakt",
+    "contact_h": "Sprechen wir",
+    "contact_p": "Offen für Möglichkeiten. Das Profil ist für Recruiter sichtbar. Basis in São Paulo, verfügbar hybrid, remote oder vor Ort.",
+    "contact_fine": "WhatsApp · São Paulo, Brasilien",
+    "footer_role": "Software Engineer · Localiza&Co",
+    "theme_white": "Weiß",
+    "theme_black": "Schwarz",
+    "theme_white_label": "Zu weißem Hintergrund wechseln",
+    "theme_black_label": "Zu schwarzem Hintergrund wechseln",
+    "lang_label": "Sprache wählen"
+  },
+  "it": {
+    "skip": "Vai al contenuto",
+    "nav_work": "Lavoro",
+    "nav_projects": "Progetti",
+    "nav_studying": "Studi",
+    "nav_stack": "Stack",
+    "nav_resume": "Curriculum",
+    "nav_contact": "Contatto",
+    "role": "Software engineer. Full stack, supporto applicativo e automazione.",
+    "lede": "In Localiza&Co mantengo applicazioni .NET e React e pubblico in produzione su Azure le modifiche di tutte le tribù dell'alleanza Jornada do Carro. Uso Datadog per monitorare queste applicazioni e indagare gli incidenti. Sviluppo software full stack con Java, .NET e React.",
+    "fluent": "Java",
+    "meta_city": "São Paulo, Brasile",
+    "meta_mode": "Ibrido, da remoto o in sede",
+    "meta_open": "Aperto ai recruiter",
+    "f_role": "Ruolo",
+    "f_company": "Azienda",
+    "f_edu": "Formazione",
+    "f_focus": "Focus",
+    "f_focus_v": "Java · .NET · React · Azure",
+    "f_base": "Base",
+    "f_base_v": "São Paulo e altre quattro regioni",
+    "photo_alt": "Ritratto di Sansão Dembué Vieira",
+    "work_h": "Cosa faccio",
+    "work_note": "Lavoro nel punto in cui il codice consegnato da una tribù deve restare in piedi in produzione.",
+    "w1_h": "Supporto applicativo",
+    "w1_p": "Mantengo applicazioni .NET e React dell'alleanza Jornada do Carro: capisco il flusso, trovo il guasto e aiuto il team che ha consegnato la modifica a ripartire.",
+    "w2_h": "Deploy in produzione",
+    "w2_p": "Pubblico su Azure le modifiche di tutte le tribù dell'alleanza. Questo include preparare il rilascio, seguire il rollout e confermare che l'ambiente è rimasto stabile.",
+    "w3_h": "Osservabilità e incidenti",
+    "w3_p": "Uso Datadog per monitorare le applicazioni e indagare cosa è successo in produzione: il sintomo, il perimetro e la strada fino alla causa.",
+    "w4_h": "Automazione e IA applicata",
+    "w4_p": "Studio automazione dei processi e IA applicata — agenti, sistemi multi-agente e MCP — per accorciare la strada tra una richiesta e un passo che qualcuno può eseguire.",
+    "proj_h": "Progetti",
+    "proj_note": "Backend e lavoro di squadra. Java è il filo conduttore.",
+    "p1_k": "Sfida backend",
+    "p1_p": "Backend REST per ingerire posizioni dei veicoli, registrare e consultare punti di interesse e calcolare quanto tempo un veicolo resta in ciascun POI. Struttura a livelli con Controller, Service, Repository e Model, con test unitari del servizio di ingestion.",
+    "p2_k": "API REST",
+    "p2_h": "API di registrazione utenti",
+    "p2_p": "API REST per registrazione utenti, autenticazione, autorizzazione e gestione del profilo.",
+    "p3_h": "Progetti collaborativi, Classe 78",
+    "p3_p": "Consegna di squadra durante il bootcamp, inclusi ProjetoFitness, ProjetoDelivery e ProjetoRH, con i repository frontend collegati.",
+    "link_backend": "Backend",
+    "link_frontend": "Frontend",
+    "link_demo": "Demo",
+    "link_repo": "Repository",
+    "link_repos": "Repository",
+    "tech_label": "Tecnologie",
+    "study_h": "Sto studiando",
+    "study_note": "Ciò che sto approfondendo, accanto all'operazione di ogni giorno.",
+    "s1_h": "Agenti di IA",
+    "s1_p": "Come un agente legge un contesto, chiama lo strumento giusto e restituisce un passo successivo che una persona può eseguire.",
+    "s2_h": "Sistemi multi-agente",
+    "s2_p": "Come agenti specializzati dividono un compito e si passano il lavoro senza perdere il filo.",
+    "s3_p": "Model Context Protocol: un contratto comune con cui un agente raggiunge strumenti e dati.",
+    "s4_h": "Prompt engineering",
+    "s4_p": "Come istruzioni, esempi e vincoli cambiano la qualità di un risultato.",
+    "s5_h": "Automazione dei processi",
+    "s5_p": "Trovare il passo operativo che si ripete e trasformarlo in un flusso.",
+    "stack_h": "Tecnologie",
+    "stack_note": "Ciò che uso per costruire, sostenere e osservare la produzione.",
+    "stack_lang": "Linguaggi",
+    "stack_ui": "Interfaccia e servizi",
+    "stack_platform": "Piattaforma",
+    "stack_obs": "Osservabilità",
+    "fluent_tag": "Java",
+    "contact_k": "Contatto",
+    "contact_h": "Parliamone",
+    "contact_p": "Aperto alle opportunità. Il profilo è visibile ai recruiter. Base a São Paulo, disponibilità ibrida, da remoto o in sede.",
+    "contact_fine": "WhatsApp · São Paulo, Brasile",
+    "footer_role": "Software engineer · Localiza&Co",
+    "theme_white": "Bianco",
+    "theme_black": "Nero",
+    "theme_white_label": "Passa allo sfondo bianco",
+    "theme_black_label": "Passa allo sfondo nero",
+    "lang_label": "Scegli la lingua"
+  }
+}
+  </script>
+  <script>
+    (function () {
+      var I18N = JSON.parse(document.getElementById("i18n").textContent);
+      var LANGS = [
+        ["en", "English"],
+        ["pt", "Português"],
+        ["es", "Español"],
+        ["fr", "Français"],
+        ["de", "Deutsch"],
+        ["it", "Italiano"]
+      ];
+      var lang = "en";
+      try {
+        var saved = localStorage.getItem("sdv-lang");
+        if (saved && I18N[saved]) lang = saved;
+      } catch (err) {}
+
+      var langBtn = document.getElementById("lang-btn");
+      var langMenu = document.getElementById("lang-menu");
+      var langCode = document.getElementById("lang-code");
+      var themeBtn = document.getElementById("theme-btn");
+      var themeLabel = document.getElementById("theme-label");
+
+      LANGS.forEach(function (pair) {
+        var item = document.createElement("li");
+        var button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("role", "option");
+        button.dataset.lang = pair[0];
+        button.textContent = pair[1];
+        button.addEventListener("click", function () { setLang(pair[0]); closeMenu(); });
+        item.appendChild(button);
+        langMenu.appendChild(item);
+      });
+
+      function dict() { return I18N[lang]; }
+
+      function apply() {
+        var copy = dict();
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var key = el.getAttribute("data-i18n");
+          if (copy[key]) el.textContent = copy[key];
+        });
+        document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+          var key = el.getAttribute("data-i18n-alt");
+          if (copy[key]) el.alt = copy[key];
+        });
+        document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
+        langCode.textContent = lang.toUpperCase();
+        langMenu.querySelectorAll("button").forEach(function (button) {
+          button.setAttribute("aria-selected", button.dataset.lang === lang ? "true" : "false");
+        });
+        langBtn.setAttribute("aria-label", copy.lang_label);
+        langMenu.setAttribute("aria-label", copy.lang_label);
+        paintTheme();
+      }
+
+      function setLang(next) {
+        lang = next;
+        try { localStorage.setItem("sdv-lang", next); } catch (err) {}
+        apply();
+      }
+
+      function isLight() {
+        return document.documentElement.getAttribute("data-theme") === "light";
+      }
+
+      function paintTheme() {
+        var copy = dict();
+        var light = isLight();
+        themeLabel.textContent = light ? copy.theme_black : copy.theme_white;
+        themeBtn.setAttribute("aria-pressed", light ? "true" : "false");
+        themeBtn.setAttribute("aria-label", light ? copy.theme_black_label : copy.theme_white_label);
+      }
+
+      function closeMenu() {
+        langMenu.classList.remove("open");
+        langMenu.hidden = true;
+        langBtn.setAttribute("aria-expanded", "false");
+      }
+
+      function openMenu() {
+        langMenu.hidden = false;
+        langMenu.classList.add("open");
+        langBtn.setAttribute("aria-expanded", "true");
+      }
+
+      langBtn.addEventListener("click", function () {
+        if (langMenu.classList.contains("open")) closeMenu();
+        else openMenu();
+      });
+
+      themeBtn.addEventListener("click", function () {
+        var next = isLight() ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", next);
+        try { localStorage.setItem("sdv-theme", next); } catch (err) {}
+        paintTheme();
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!langBtn.contains(event.target) && !langMenu.contains(event.target)) closeMenu();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+      }
+
+      apply();
+    })();
+  </script>
+</body>
+</html>
